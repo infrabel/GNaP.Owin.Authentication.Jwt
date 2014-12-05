@@ -17,6 +17,7 @@ app.UseJwtTokenIssuer(new JwtTokenIssuerOptions
     TokenSigningKey = "U0lHTklOR19LRVlfR09FU19IRVJF",
     Authenticate = (username, password) =>
     {
+        // Dummy example authentication check
         if (username.Equals("gnap"))
         {
             return new[]
@@ -28,6 +29,7 @@ app.UseJwtTokenIssuer(new JwtTokenIssuerOptions
             };
         }
 
+        // Invalid user
         return null;
     }
 });
