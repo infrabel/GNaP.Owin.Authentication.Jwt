@@ -40,7 +40,9 @@
             const string payload = "{ username: \"john\", password: \"pass\"}";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, JwtTokenIssuerOptions.Default.IssuerPath, payload);
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
 
             // assert
             Assert.IsTrue(response.IsSuccessStatusCode);
@@ -53,7 +55,9 @@
             const string payload = "{ username: \"john\", password: \"pass\"}";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, JwtTokenIssuerOptions.Default.IssuerPath, payload);
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
 
             // assert
             Assert.IsTrue(response.Content.Headers.Contains("Content-Type"));
@@ -67,7 +71,9 @@
             const string payload = "{ username: \"john\", password: \"pass\"}";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, JwtTokenIssuerOptions.Default.IssuerPath, payload);
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
 
             // assert
             var responseBody = await response.Content.ReadAsStringAsync();
@@ -88,7 +94,9 @@
             const string payload = "{ username: \"john\", password: \"pass\"}";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, JwtTokenIssuerOptions.Default.IssuerPath, payload);
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
 
             // assert
             var responseBody = await response.Content.ReadAsStringAsync();

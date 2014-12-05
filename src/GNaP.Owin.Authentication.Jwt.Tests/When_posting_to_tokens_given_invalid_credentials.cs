@@ -2,14 +2,13 @@
 {
     using Microsoft.Owin.Testing;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Security.Claims;
+    using System.Net;
     using System.Threading.Tasks;
 
     [TestClass]
-    public class When_posting_to_custom_path_given_valid_credentials
+    public class When_posting_to_tokens_given_invalid_credentials
     {
         private TestServer _server;
-        private const string CustomIssuerPath = "/custom";
 
         [TestInitialize]
         public void Setup()
@@ -21,29 +20,27 @@
                     Issuer = JwtTokenConstants.Issuer,
                     Audience = JwtTokenConstants.Audience,
                     TokenSigningKey = JwtTokenConstants.TokenSigningKey,
-                    IssuerPath = CustomIssuerPath,
                     Authenticate = (username, password) =>
                     {
-                        return new[]
-                        {
-                            new Claim("name", username)
-                        };
+                        return null; // simulate invalid credentials
                     }
                 });
             });
         }
 
         [TestMethod]
-        public async Task Should_return_success_status_code()
+        public async Task Should_return_bad_request_status_code()
         {
             // arrange
             const string payload = "{ username: \"john\", password: \"pass\"}";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, CustomIssuerPath, payload);
-            
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
+
             // assert
-            Assert.IsTrue(response.IsSuccessStatusCode);
+            Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
 
         [TestCleanup]

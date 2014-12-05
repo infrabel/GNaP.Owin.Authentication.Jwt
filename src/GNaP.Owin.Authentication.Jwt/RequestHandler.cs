@@ -41,6 +41,7 @@
             {
                 Token = token
             };
+
             await ResponseWriter.WriteTo(context.Response, responsePayload);
         }
 
@@ -56,10 +57,9 @@
 
         private static string CreateToken(IEnumerable<Claim> claims, JwtTokenIssuerOptions options)
         {
-            var jwtTokenFactory = new JwtTokenFactory(
-                options.Issuer,
-                options.Audience,
-                options.TokenSigningKey);
+            var jwtTokenFactory = new JwtTokenFactory(options.Issuer,
+                                                      options.Audience,
+                                                      options.TokenSigningKey);
 
             return jwtTokenFactory.GenerateToken(claims, options.TokenLifetime);
         }

@@ -7,6 +7,7 @@
     public class JwtTokenIssuerOptions
     {
         private const string DefaultIssuerPath = "/tokens";
+
         private static readonly TimeSpan DefaultTokenLifetime = new TimeSpan(1, 0, 0);
 
         public JwtTokenIssuerOptions()
@@ -15,7 +16,10 @@
             TokenLifetime = DefaultTokenLifetime;
         }
 
-        public static JwtTokenIssuerOptions Default { get {return new JwtTokenIssuerOptions();} }
+        public static JwtTokenIssuerOptions Default
+        {
+            get { return new JwtTokenIssuerOptions(); }
+        }
 
         public string Issuer { get; set; }
 

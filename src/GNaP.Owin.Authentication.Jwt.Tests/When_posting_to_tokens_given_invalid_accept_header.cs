@@ -10,7 +10,7 @@
     using System.Threading.Tasks;
 
     [TestClass]
-    public class When_posting_to_tokens_given_invalid_content_type
+    public class When_posting_to_tokens_given_invalid_accept_header
     {
         private TestServer _server;
 
@@ -39,19 +39,22 @@
         public async Task Should_return_bad_request()
         {
             // arrange
-            var payload = new StringContent(
-                "{ username: \"john\", password: \"pass\"}", Encoding.UTF8, "application/xml");
+            var payload = new StringContent("{ username: \"john\", password: \"pass\"}", 
+                                            Encoding.UTF8, 
+                                            "application/json");
+
             var client = _server.HttpClient;
-            client.DefaultRequestHeaders.Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            
+            client.DefaultRequestHeaders
+                  .Accept
+                  .Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+
             // act
             var response = await client.PostAsync("/tokens", payload);
 
             // assert
             Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
         }
-        
+
         [TestCleanup]
         public void Teardown()
         {

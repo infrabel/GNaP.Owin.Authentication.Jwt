@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$id$</title>
+    
+    <authors>infrabel</authors>
+    <owners>infrabel</owners>
+
+    <summary>REST endpoint to easily issue JSON Web Tokens</summary>
+    <description>$description$</description>
+    <copyright>BSD (3-Clause) - Infrabel</copyright>
+    
+    <projectUrl>https://github.com/infrabel/GNaP.Owin.Authentication.Jwt</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/infrabel/GNaP.Owin.Authentication.Jwt/master/src/icon.png</iconUrl>
+    <licenseUrl>https://github.com/infrabel/GNaP.Owin.Authentication.Jwt/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    
+    <tags>gnap owin authentication jwt web</tags>
+  </metadata>
+</package>

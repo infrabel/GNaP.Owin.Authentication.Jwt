@@ -34,7 +34,7 @@
                 });
             });
         }
-        
+
 
         [TestMethod]
         public async Task Should_return_token_with_expiration_date_for_lifetime()
@@ -43,7 +43,9 @@
             const string payload = "{ username: \"john\", password: \"pass\"}";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, JwtTokenIssuerOptions.Default.IssuerPath, payload);
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
 
             // assert
             var responseBody = await response.Content.ReadAsStringAsync();

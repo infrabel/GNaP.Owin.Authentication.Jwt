@@ -5,7 +5,15 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GNaP.Owin.Authentication.Jwt", "GNaP.Owin.Authentication.Jwt\GNaP.Owin.Authentication.Jwt.csproj", "{24096361-91CD-492F-A3F4-7F746951F383}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GNaP.Owin.Authentication.Jwt", "GNaP.Owin.Authentication.Jwt.Tests\GNaP.Owin.Authentication.Jwt.Tests.csproj", "{FB95D854-5A06-4CC5-B8E7-9BACACA1E1BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GNaP.Owin.Authentication.Jwt.Tests", "GNaP.Owin.Authentication.Jwt.Tests\GNaP.Owin.Authentication.Jwt.Tests.csproj", "{FB95D854-5A06-4CC5-B8E7-9BACACA1E1BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{CFA91C88-6870-4A0A-9F2B-55ABF2ED9D67}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
+		..\nupack.cmd = ..\nupack.cmd
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

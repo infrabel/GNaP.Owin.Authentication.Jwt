@@ -8,7 +8,7 @@
     public class JwtTokenIssuerMiddleware : OwinMiddleware
     {
         private readonly JwtTokenIssuerOptions _options;
-        
+
         public JwtTokenIssuerMiddleware(OwinMiddleware next)
             : this(next, JwtTokenIssuerOptions.Default)
         {
@@ -17,7 +17,8 @@
         public JwtTokenIssuerMiddleware(OwinMiddleware next, JwtTokenIssuerOptions options)
             : base(next)
         {
-            if (options == null) throw new ArgumentNullException("options");
+            if (options == null)
+                throw new ArgumentNullException("options");
 
             ValidateOptions(options);
 
@@ -46,7 +47,7 @@
 
             if (string.IsNullOrEmpty(options.Audience))
                 throw new ArgumentException("The Audience property has no value set", "options");
-            
+
             if (string.IsNullOrEmpty(options.TokenSigningKey))
                 throw new ArgumentException("The TokenSigningKey property has no value set", "options");
 

@@ -35,7 +35,9 @@
             const string payload = "{ Invalid: 'Invalid' }";
 
             // act
-            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, JwtTokenIssuerOptions.Default.IssuerPath, payload);
+            var response = await HttpClientHelper.PostJsonAsync(_server.HttpClient, 
+                                                                JwtTokenIssuerOptions.Default.IssuerPath, 
+                                                                payload);
 
             // assert
             Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);

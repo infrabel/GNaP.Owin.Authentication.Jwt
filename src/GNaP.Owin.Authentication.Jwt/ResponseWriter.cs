@@ -9,8 +9,8 @@
     {
         internal static async Task WriteTo(IOwinResponse response, ResponsePayload payload)
         {
-            var payloadAsJson = 
-                JsonConvert.SerializeObject(new { token = payload.Token }, JsonSerializerSettingsFactory.CreateDefault());
+            var payloadAsJson = JsonConvert.SerializeObject(new { token = payload.Token }, 
+                                                            JsonSerializerSettingsFactory.CreateDefault());
 
             response.ContentType = "application/json";
 

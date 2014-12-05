@@ -9,8 +9,9 @@
     {
         public static async Task<HttpResponseMessage> PostJsonAsync(HttpClient client, string url, string content)
         {
-            client.DefaultRequestHeaders.Accept
-                    .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders
+                  .Accept
+                  .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var stringContent = new StringContent(content, Encoding.UTF8, "application/json");
 

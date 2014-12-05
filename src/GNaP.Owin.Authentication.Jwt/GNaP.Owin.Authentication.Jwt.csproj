@@ -24,10 +24,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\build\GNaP.Owin.Authentication.Jwt\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gnap.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Owin">
@@ -48,13 +51,12 @@
     <Reference Include="System.IdentityModel.Tokens.Jwt">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.1\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="AppBuilderExtensions.cs" />
     <Compile Include="JsonSerializerSettingsFactory.cs" />
     <Compile Include="RequestHandler.cs" />
@@ -69,7 +71,11 @@
     <Compile Include="RequestValidator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GNaP.Owin.Authentication.Jwt.nuspec" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gnap.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

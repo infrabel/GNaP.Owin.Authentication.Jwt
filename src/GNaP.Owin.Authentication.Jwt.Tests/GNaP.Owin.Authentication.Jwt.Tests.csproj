@@ -29,10 +29,13 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\build\GNaP.Owin.Authentication.Jwt.Tests\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>gnap.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +77,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="HttpClientHelper.cs" />
     <Compile Include="JwtTokenConstants.cs" />
     <Compile Include="JwtTokenHelper.cs" />
@@ -94,6 +100,9 @@
       <Project>{24096361-91cd-492f-a3f4-7f746951f383}</Project>
       <Name>GNaP.Owin.Authentication.Jwt</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gnap.ico" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
