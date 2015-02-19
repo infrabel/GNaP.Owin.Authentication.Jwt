@@ -20,7 +20,7 @@
                     Issuer = JwtTokenConstants.Issuer,
                     Audience = JwtTokenConstants.Audience,
                     TokenSigningKey = JwtTokenConstants.TokenSigningKey,
-                    Authenticate = (username, password) =>
+                    Authenticate = (context) =>
                     {
                         return null; // simulate invalid credentials
                     }

@@ -25,7 +25,7 @@
             }
 
             // authenticate
-            var claims = Authenticate(options, requestPayload).ToList();
+            var claims = Authenticate(options, requestPayload, context).ToList();
             if (!claims.Any())
             {
                 // no claims means not authenticated, return 400
@@ -45,9 +45,16 @@
             await ResponseWriter.WriteTo(context.Response, responsePayload);
         }
 
-        private static IEnumerable<Claim> Authenticate(JwtTokenIssuerOptions options, RequestPayload requestPayload)
+        private static IEnumerable<Claim> Authenticate(JwtTokenIssuerOptions options, RequestPayload requestPayload, IOwinContext context)
         {
-            var claims = options.Authenticate(requestPayload.Username, requestPayload.Password);
+            var authenticationContext = new AuthenticationContext
+            {
+                Username = requestPayload.Username,
+                Password = requestPayload.Password,
+                Context = context
+            };
+
+            var claims = options.Authenticate(authenticationContext);
 
             // if no claims were created in the authenticate phase then replace with empty claims array
             claims = claims ?? new Claim[0];

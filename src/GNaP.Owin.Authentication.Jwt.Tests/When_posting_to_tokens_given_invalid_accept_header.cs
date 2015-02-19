@@ -24,11 +24,11 @@
                     Issuer = "urn:test",
                     Audience = "urn:test",
                     TokenSigningKey = "U0lHTklOR19LRVlfR09FU19IRVJF",
-                    Authenticate = (username, password) =>
+                    Authenticate = (context) =>
                     {
                         return new[]
                         {
-                            new Claim("name", username)
+                            new Claim("name", context.Username)
                         };
                     }
                 });

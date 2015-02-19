@@ -58,6 +58,7 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AppBuilderExtensions.cs" />
+    <Compile Include="AuthenticationContext.cs" />
     <Compile Include="JsonSerializerSettingsFactory.cs" />
     <Compile Include="RequestHandler.cs" />
     <Compile Include="RequestPayload.cs" />
