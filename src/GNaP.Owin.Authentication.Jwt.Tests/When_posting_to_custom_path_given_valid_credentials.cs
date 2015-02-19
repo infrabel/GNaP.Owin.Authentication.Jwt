@@ -22,11 +22,11 @@
                     Audience = JwtTokenConstants.Audience,
                     TokenSigningKey = JwtTokenConstants.TokenSigningKey,
                     IssuerPath = CustomIssuerPath,
-                    Authenticate = (username, password) =>
+                    Authenticate = (context) =>
                     {
                         return new[]
                         {
-                            new Claim("name", username)
+                            new Claim("name", context.Username)
                         };
                     }
                 });

@@ -24,11 +24,11 @@
                     Audience = JwtTokenConstants.Audience,
                     TokenSigningKey = JwtTokenConstants.TokenSigningKey,
                     TokenLifetime = new TimeSpan(6, 0, 0),
-                    Authenticate = (username, password) =>
+                    Authenticate = (context) =>
                     {
                         return new[]
                         {
-                            new Claim("name", username)
+                            new Claim("name", context.Username)
                         };
                     }
                 });

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Security.Claims;
+    using Microsoft.Owin;
 
     public class JwtTokenIssuerOptions
     {
@@ -31,6 +32,6 @@
 
         public TimeSpan TokenLifetime { get; set; }
 
-        public Func<string, string, IEnumerable<Claim>> Authenticate { get; set; }
+        public Func<AuthenticationContext, IEnumerable<Claim>> Authenticate { get; set; }
     }
 }
