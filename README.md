@@ -15,16 +15,16 @@ app.UseJwtTokenIssuer(new JwtTokenIssuerOptions
     Issuer = "urn:issuer",
     Audience = "urn:audience",
     TokenSigningKey = "U0lHTklOR19LRVlfR09FU19IRVJF",
-    Authenticate = (username, password) =>
+    Authenticate = (context) =>
     {
         // Dummy example authentication check
-        if (username.Equals("gnap"))
+        if (context.Username.Equals("gnap"))
         {
             return new[]
             {
                 new Claim(ClaimTypes.AuthenticationInstant, DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")),
                 new Claim(ClaimTypes.AuthenticationMethod, AuthenticationTypes.Password), 
-                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.Name, context.Username),
                 new Claim(ClaimTypes.Role, "Administrator")
             };
         }
@@ -84,7 +84,7 @@ The lifetime of the JWT.
 
 ### Authenticate
 
-A callback method which receives the username and password to be used in the authentication process.
+A callback method which receives a context object containing the username and password to be used in the authentication process.
 
 If the user is valid, a list of claims should be returned.
 
@@ -96,7 +96,7 @@ If the user is invalid, return ```null```.
 
 ## Copyright
 
-Copyright © 2014 Infrabel and contributors.
+Copyright © 2014-2015 Infrabel and contributors.
 
 ## License
 
